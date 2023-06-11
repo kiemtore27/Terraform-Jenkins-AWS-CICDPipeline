@@ -1,4 +1,4 @@
 # terraform-projects
-we will deploy a Dynamic Website on AWS cloud by writting Terraform syntax
+we will create 3 tiers architecture resources on AWS environment using Terraform syntax 
 
 
