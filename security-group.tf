@@ -73,10 +73,11 @@ resource "aws_security_group" "webserver_security_group" {
     to_port          = 80
     protocol         = "tcp"
     security_groups  = [aws_security_group.alb_security_group.id]
+  }
 
   ingress {
     description      = "https access"
-    from_port        = 433
+    from_port        = 443
     to_port          = 443
     protocol         = "tcp"
     security_groups  = [aws_security_group.alb_security_group.id]
@@ -88,7 +89,6 @@ resource "aws_security_group" "webserver_security_group" {
     to_port          = 22
     protocol         = "tcp"
     security_groups  = [aws_security_group.ssh_security_group.id]
-  }
   }
 
   egress {
