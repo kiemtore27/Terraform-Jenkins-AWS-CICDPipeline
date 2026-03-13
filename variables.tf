@@ -49,6 +49,40 @@ variable "ssh_location" {
   description = "the ip address that can ssh into the ec2 instances"
   type        = string
 }
+variable "db_subnet_group_name" {
+  description = "Name of the DB subnet group"
+  type        = string
+  default     = "database-subnets"
+}
+
+variable "database_snapshot_identifier" {
+  description = "Identifier of the DB snapshot to restore from"
+  type        = string
+}
+
+variable "database_instance_class" {
+  description = "Instance class for the RDS database"
+  type        = string
+  default     = "db.t3.micro"
+}
+
+variable "database_availability_zone" {
+  description = "Availability zone for the database instance"
+  type        = string
+  default     = "us-east-1b"
+}
+
+variable "database_instance_identifier" {
+  description = "Unique identifier for the RDS instance"
+  type        = string
+  default     = "dev-database"
+}
+
+variable "multi_az_deployment" {
+  description = "Whether to deploy the database in multiple AZs"
+  type        = bool
+  default     = false
+}
 
 # rds variables
 variable "database_snapshot_identifier" {
