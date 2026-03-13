@@ -1,51 +1,129 @@
-# Terraform variables file
-
-variable "aws_region" {
-  description = "AWS region"
-  default     = "us-east-1"
-}
-
-variable "ec2_instance_type" {  
-  description = "The instance type of the EC2 instance"
-  default     = "t2.micro"
-}
-
-variable "db_username" {  
-  description = "The username for the database"
-  default     = "admin"
-}
-
-variable "db_password" {  
-  description = "The password for the database"
-  default     = "password"
-}
-
-variable "db_instance_class" {  
-  description = "The instance class for the database"
-  default     = "db.t2.micro"
-}
-
-variable "db_name" {  
-  description = "The name of the database"
-  default     = "mydb"
-}
-
-variable "vpc_cidr_block" {  
-  description = "CIDR block for the VPC"
+# vpc variables
+variable "vpc_cidr" { 
   default     = "10.0.0.0/16"
+  description = "vpc cidr block"
+  type        = string
 }
 
-variable "subnet_cidr_block" {  
-  description = "CIDR block for the subnet"
+variable "public_subnet_az1_cidr" { 
+  default     = "10.0.0.0/24"
+  description = "public subnet az1 cidr block"
+  type        = string
+}
+
+variable "public_subnet_az2_cidr" { 
   default     = "10.0.1.0/24"
+  description = "public subnet az2 cidr block"
+  type        = string
 }
 
-variable "public_subnet_cidr_block" {  
-  description = "CIDR block for the public subnet"
+
+variable "private_app_subnet_az1_cidr" { 
   default     = "10.0.2.0/24"
+  description = "private app subnet az1 cidr block"
+  type        = string
 }
 
-variable "private_subnet_cidr_block" {  
-  description = "CIDR block for the private subnet"
+variable "private_app_subnet_az2_cidr" { 
   default     = "10.0.3.0/24"
+  description = "private app subnet az2 cidr block"
+  type        = string
+}
+
+
+variable "private_data_subnet_az1_cidr" { 
+  default     = "10.0.4.0/24"
+  description = "private data subnet az1 cidr block"
+  type        = string
+}
+
+variable "private_data_subnet_az2_cidr" { 
+  default     = "10.0.5.0/24"
+  description = "private data subnet az2 cidr block"
+  type        = string
+}
+
+# security group variables
+variable "ssh_location" {
+  default     = "0.0.0.0/0"
+  description = "the ip address that can ssh into the ec2 instances"
+  type        = string
+}
+
+# rds variables
+variable "database_snapshot_identifier" {
+  default     = "snapshot arn"
+  description = "the database snapshot arn"
+  type        = string
+}
+
+variable "database_instance_class" {
+  default     = "db.t2.micro"
+  description = "the database instance type"
+  type        = string
+}
+
+variable "database_instance_identifier" {
+  default     = "dev-rds-db"
+  description = "the database instance identifier"
+  type        = string
+}
+
+variable "multi_az_deployment" {
+  default     = false
+  description = "create a standby db instance"
+  type        = bool
+}
+
+# application load balancer variables
+variable "ssl_certification_arn" {
+  default     = "ssl_certification_arn"
+  description = "ssl certification arn"
+  type        = string
+}
+
+# sns topic variable
+variable "operator_email" {
+  default     = "kiemtore27@gmail.com"
+  description = "a valid email address"
+  type        = string
+}
+
+# auto scaling group variables
+variable "launch_template_name" {
+  default     = "dev-launch-template"
+  description = "name of the launch template"
+  type        = string
+}
+
+
+variable "ec2_image_id" {
+  default     = "ec2-ami-arn"
+  description = "id of the ami"
+  type        = string
+}
+
+variable "ec2_instance_type" {
+  default     = "t2.micro"
+  description = "the ec2 instance type"
+  type        = string
+}
+
+variable "ec2_key_pair_name" {
+  default     = "terraform-aws-key"
+  description = "name of the key pair"
+  type        = string
+}
+
+# route 53 variables
+variable "domain_name" {
+  default     = "weblabskiem.ml"
+  description = "domain name"
+  type        = string
+}
+
+variable "record_name" {
+  default     = "www"
+  description = "sub domain name"
+  type        = string
 }
