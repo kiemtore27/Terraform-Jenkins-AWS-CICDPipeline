@@ -76,9 +76,26 @@ variable "multi_az_deployment" {
 }
 
 # application load balancer variables
-variable "ssl_certification_arn" {
-  default     = "ssl_certification_arn"
-  description = "ssl certification arn"
+variable "alb_name" {
+  description = "Name of the Application Load Balancer"
+  type        = string
+  default     = "dev-alb"
+}
+
+variable "target_group_name" {
+  description = "Name of the Target Group"
+  type        = string
+  default     = "dev-alb-tg"
+}
+
+variable "target_group_port" {
+  description = "Port for the Target Group"
+  type        = number
+  default     = 80
+}
+
+variable "ssl_certificate_arn" {
+  description = "ARN of the SSL certificate for HTTPS listener"
   type        = string
 }
 
