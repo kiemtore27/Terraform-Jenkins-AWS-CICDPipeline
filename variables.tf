@@ -179,12 +179,12 @@ variable "ec2_key_pair_name" {
 # route 53 variables
 variable "domain_name" {
   default     = "weblabskiem.ml"
-  description = "domain name"
+  description = "The domain name of the hosted zone in Route 53"
   type        = string
 }
 
 variable "record_name" {
   default     = "www"
-  description = "sub domain name"
+  description = "The DNS record name to create in Route 53"
   type        = string
 }
