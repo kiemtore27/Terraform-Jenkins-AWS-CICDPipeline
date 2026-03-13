@@ -42,6 +42,46 @@ variable "private_data_subnet_az2_cidr" {
   description = "private data subnet az2 cidr block"
   type        = string
 }
+variable "vpc_id" {
+  description = "The ID of the VPC"
+  type        = string
+}
+
+variable "public_subnet_az1_id" {
+  description = "ID of the public subnet in AZ1"
+  type        = string
+}
+
+variable "public_subnet_az2_id" {
+  description = "ID of the public subnet in AZ2"
+  type        = string
+}
+
+variable "private_app_subnet_az1_id" {
+  description = "ID of the private app subnet in AZ1"
+  type        = string
+}
+
+variable "private_app_subnet_az2_id" {
+  description = "ID of the private app subnet in AZ2"
+  type        = string
+}
+
+variable "private_data_subnet_az1_id" {
+  description = "ID of the private data subnet in AZ1"
+  type        = string
+}
+
+variable "private_data_subnet_az2_id" {
+  description = "ID of the private data subnet in AZ2"
+  type        = string
+}
+
+variable "internet_gateway_id" {
+  description = "ID of the Internet Gateway for the VPC"
+  type        = string
+}
+
 
 # security group variables
 variable "ssh_location" {
