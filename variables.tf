@@ -106,13 +106,57 @@ variable "operator_email" {
   type        = string
 }
 
-# auto scaling group variables
 variable "launch_template_name" {
-  default     = "dev-launch-template"
-  description = "name of the launch template"
+  description = "Name of the EC2 launch template"
+  type        = string
+  default     = "webserver-launch-template"
+}
+
+variable "ec2_image_id" {
+  description = "AMI ID for EC2 instances"
   type        = string
 }
 
+variable "ec2_instance_type" {
+  description = "EC2 instance type"
+  type        = string
+  default     = "t3.micro"
+}
+
+variable "ec2_key_pair_name" {
+  description = "Name of the EC2 key pair"
+  type        = string
+}
+
+variable "asg_name" {
+  description = "Name of the Auto Scaling Group"
+  type        = string
+  default     = "dev-asg"
+}
+
+variable "asg_instance_name" {
+  description = "Tag name for instances in the ASG"
+  type        = string
+  default     = "asg-webserver"
+}
+
+variable "asg_desired_capacity" {
+  description = "Desired number of instances in ASG"
+  type        = number
+  default     = 2
+}
+
+variable "asg_max_size" {
+  description = "Maximum number of instances in ASG"
+  type        = number
+  default     = 4
+}
+
+variable "asg_min_size" {
+  description = "Minimum number of instances in ASG"
+  type        = number
+  default     = 1
+}
 
 variable "ec2_image_id" {
   default     = "ec2-ami-arn"
